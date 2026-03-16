@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Admin Panel</title>
+</head>
+
+<body>
+
+<h2>Royal Falcon Admin Dashboard</h2>
+
+<h3>Create Shipment</h3>
+
+<form method="post">
+
+<input name="code" placeholder="Tracking Number" required>
+<br><br>
+
+<input name="origin" placeholder="Origin Country" required>
+<br><br>
+
+<input name="destination" placeholder="Destination Country" required>
+<br><br>
+
+<input name="location" placeholder="Current Location" required>
+<br><br>
+
+<input name="status" placeholder="Shipment Status" required>
+<br><br>
+
+<button type="submit">Create Shipment</button>
+
+</form>
+
+<hr>
+
+<h3>Existing Shipments</h3>
+
+{% for code, shipment in shipments.items() %}
+
+<p>
+<b>{{code}}</b><br>
+Origin: {{shipment.origin}}<br>
+Destination: {{shipment.destination}}<br>
+Location: {{shipment.location}}<br>
+Status: {{shipment.status}}
+</p>
+
+<hr>
+
+{% endfor %}
+
+</body>
+
+</html>
