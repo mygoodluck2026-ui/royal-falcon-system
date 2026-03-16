@@ -2,8 +2,11 @@
 <html>
 
 <head>
+
 <title>Royal Falcon Shipment Tracking</title>
+
 <link rel="stylesheet" href="/static/style.css">
+
 </head>
 
 <body>
@@ -12,27 +15,39 @@
 
 <form method="POST">
 
-<input type="text" name="code" placeholder="Enter Tracking Number" required>
+<input name="code" placeholder="Enter Tracking Number">
 
-<button type="submit">Track</button>
+<button>Track</button>
 
 </form>
 
-<hr>
-
 {% if shipment %}
+
+<div class="card">
 
 <h2>Shipment Information</h2>
 
-<p>
+<p>Origin: {{shipment.origin}}</p>
 
-Tracking Number: {{shipment.code}} <br>
-Origin: {{shipment.origin}} <br>
-Destination: {{shipment.destination}} <br>
-Current Location: {{shipment.location}} <br>
-Status: {{shipment.status}}
+<p>Destination: {{shipment.destination}}</p>
 
-</p>
+<p>Current Location: {{shipment.location}}</p>
+
+<p>Status: {{shipment.status}}</p>
+
+</div>
+
+<h2>Shipment Progress</h2>
+
+{% for step in history %}
+
+<div class="timeline">
+
+<p>{{step.location}} - {{step.status}}</p>
+
+</div>
+
+{% endfor %}
 
 {% endif %}
 
