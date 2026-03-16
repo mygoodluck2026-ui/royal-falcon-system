@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Track Shipment</title>
+</head>
+
+<body>
+
+<h2>Royal Falcon Shipment Tracking</h2>
+
+<form method="post">
+
+<input name="code" placeholder="Enter Tracking Number" required>
+
+<button type="submit">Track</button>
+
+</form>
+
+<hr>
+
+{% if shipment %}
+
+<h3>Shipment Information</h3>
+
+<p>
+Tracking Number: {{code}} <br>
+Origin: {{shipment.origin}} <br>
+Destination: {{shipment.destination}} <br>
+Current Location: {{shipment.location}} <br>
+Status: {{shipment.status}}
+</p>
+
+{% endif %}
+
+</body>
+
+</html>
