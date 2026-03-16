@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Royal Falcon Admin</title>
+
+<link rel="stylesheet" href="/static/style.css">
+
+</head>
+
+<body>
+
+<h1>Royal Falcon Admin Dashboard</h1>
+
+<form method="POST">
+
+<input name="code" placeholder="Tracking Number">
+
+<input name="origin" placeholder="Origin">
+
+<input name="destination" placeholder="Destination">
+
+<input name="location" placeholder="Current Location">
+
+<input name="status" placeholder="Status">
+
+<button>Create Shipment</button>
+
+</form>
+
+<hr>
+
+<h2>Update Shipment</h2>
+
+<form action="/update" method="POST">
+
+<input name="code" placeholder="Tracking Number">
+
+<input name="location" placeholder="New Location">
+
+<input name="status" placeholder="New Status">
+
+<button>Update</button>
+
+</form>
+
+<hr>
+
+<h2>Existing Shipments</h2>
+
+{% for s in shipments %}
+
+<p>
+
+{{s.code}} | {{s.origin}} → {{s.destination}} | {{s.status}}
+
+</p>
+
+{% endfor %}
+
+</body>
+
+</html>
